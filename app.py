@@ -2,7 +2,6 @@ from flask import Flask, render_template, request, redirect, url_for, jsonify, a
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 import sys
-from jinja2 import Template, Environment
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://nanderson992:**********@localhost:5433/todoapp'
