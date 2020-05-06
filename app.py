@@ -5,7 +5,7 @@ import sys
 from jinja2 import Template, Environment
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://nanderson992:hellodolly@localhost:5433/todoapp'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://nanderson992:*********@localhost:5433/todoapp'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
