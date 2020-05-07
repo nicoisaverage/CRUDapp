@@ -11,6 +11,15 @@
         margin: 0;
         width: 200px;
       }
+      li button {
+        -webkit-appearance: none;
+        border: none;
+        outline: none;
+        color: orange;
+        float: right;
+        cursor: pointer;
+        font-size: 20px;
+      }
     </style>
   </head>
   <body>
@@ -24,6 +33,7 @@
       <li>
         <input class="check-completed" data-id="{{ todo.id }}" type="checkbox" {% if todo.completed %} checked {% endif %} />
         {{ todo.description }}
+        <button class="delete-button" data-id="{{ todo.id }}">&cross;</button>
       </li>
       {% endfor %}
     </ul>
@@ -90,7 +100,17 @@
           console.error('Error occurred');
           document.getElementById('error').className = '';
         })
-      }
+        }
+          const deleteBtns = document.querySelectorAll('.delete-button');
+          for (let i = 0; i < deleteBtns.length; i++) {
+          const btn = deleteBtns[i];
+          btn.onclick = function(e) {
+          const todoId = e.target.dataset['id'];
+          fetch('/todos/' + todoId, {
+            method: 'DELETE'
+          });
+    }
+  }
     </script>
   </body>
 </html>
